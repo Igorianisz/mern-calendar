@@ -92,12 +92,13 @@ const loginUser = async (req, res = response) => {
     }
 
     const token = await generateJWT(usuario?._id.toString(), usuario.name);
+    console.log();
     res.status(200).json({
       ok: true,
       status: "ok",
       msg: "Login usuario",
       uid: usuario?._id.toString(),
-      user: name,
+      name: usuario.name,
       token,
     });
   } catch (error) {
